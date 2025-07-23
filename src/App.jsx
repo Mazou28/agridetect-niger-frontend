@@ -36,8 +36,10 @@ function App() {
     const formData = new FormData()
     formData.append('image', selectedFile)
 
+const API_BASE_URL = 'https://mazou28.pythonanywhere.com';
+
     try {
-      const response = await fetch('/api/predict', {
+      const response = await fetch(`${API_BASE_URL}/api/predict`, {
         method: 'POST',
         body: formData
       })
@@ -65,7 +67,7 @@ function App() {
       : `Maladie détectée: ${prediction.predicted_class === 'Blast' ? 'pyriculariose' : 'rouille'} avec une confiance de ${(prediction.confidence * 100).toFixed(1)} pour cent. Consultez un agronome.`
 
     try {
-      const response = await fetch('/api/synthesize', {
+      const response = await fetch(`${API_BASE_URL}/api/synthesize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
