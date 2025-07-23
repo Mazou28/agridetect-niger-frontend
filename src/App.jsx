@@ -36,7 +36,7 @@ function App() {
     const formData = new FormData()
     formData.append('image', selectedFile)
 
-const API_BASE_URL = 'https://mazou28-agridetect-niger-backend.hf.space/api/predict';
+const API_BASE_URL = 'https://mazou28-agridetect-niger-backend.hf.space';
 
     try {
       const response = await fetch(`${API_BASE_URL}/api/predict`, {
